@@ -12,12 +12,19 @@ APP.use(CORS());
 APP.use(EXPRESS.static(`public`));
 
 APP.get("/", (req, res) => {
+
     res.sendFile(`${process.cwd()}/views/index.html`);
+
 });
 
-APP.post('/api/fileinfo', UPLOAD.single('upfile'), (req, res) => {
-    console.log(req.file.originalname);
-    res.send('hello');
+APP.post('/api/fileanalyse', UPLOAD.single('upfile'), (req, res) => {
+
+    return res.status(200).json({
+        name: req.file.originalname,
+        type: req.file.mimetype,
+        size: req.file.size
+    });
+
 });
 
 const LISTENER = APP.listen(process.env.PORT || 3000, () => {
