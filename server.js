@@ -2,6 +2,7 @@ const EXPRESS = require('express');
 const CORS = require('cors');
 const MULTER = require('multer');
 const UPLOAD = MULTER({ dest: 'uploads/' });
+const FS = require('fs');
 
 const APP = EXPRESS();
 
@@ -19,10 +20,14 @@ APP.get("/", (req, res) => {
 
 APP.post('/api/fileanalyse', UPLOAD.single('upfile'), (req, res) => {
 
-    return res.status(200).json({
+    res.status(200).json({
         name: req.file.originalname,
         type: req.file.mimetype,
         size: req.file.size
+    });
+
+    return FS.unlink(req.file.path, err => {
+        if (err) console.log(err);
     });
 
 });
