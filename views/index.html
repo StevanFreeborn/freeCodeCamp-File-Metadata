@@ -34,13 +34,68 @@
 
     <div class="container">
 
+        <div class="row my-3">
+            <div class="col-12 text-center">
+              <h1>File Metadata Microservice</h1>
+            </div>
+          </div>
+
         <div class="row">
 
             <div class="col-12">
 
-                <h2>File Metadata Microservice</h2>
+                <h2>Documentation</h2>
+
+                <p>
+                    Welcome to the File Metadata service. This documentation should supply you with all the information you need to start making requests. It is a really simple api service built to complete one of the projects for the <a href="https://www.freecodecamp.org/learn/back-end-development-and-apis/" target="_blank" class="link-dark">freeCodeCamp Back End Development and APIs certification</a>.
+                </p>
+
+                <h5>Base Url</h5>
+
+                <div class="card p-3 bg-dark text-light">
+                    https://freecodecampfilemetadata.herokuapp.com
+                </div>
+
+                <h5 class="my-3">File Metadata Endpoint</h5>
+                        
+                <p>
+                    An endpoint that will accept a file and return a JSON object with some of the files metadata.
+                </p>
+
+                <div class="card p-3 bg-dark text-light">
+                    /api/fileanalyse
+                </div>
+
+                <h6 class="my-3">Example Request:</h6>
+
+                <div class="card p-3 bg-dark text-light">
+
+                    POST https://freecodecampfilemetadata.herokuapp.com/api/fileanalyse
+                    <br>
+                    <br>
+                    Content-Type:
+                    <br>
+                    multipart/form-data
+                    <br>
+                    <br>
+                    upfile:
+                    <br>
+                    The file to be uploaded.
+
+                </div>
+
+                <h6 class="my-3">Example Response:</h6>
+
+                <div class="card p-3 bg-dark text-light">
+                    {
+                        <br>&emsp;"name": "Test Attachment.txt",
+                        <br>&emsp;"type": "5HnSOll6pcVs",
+                        <br>&emsp;"size": 14,
+                        <br>
+                    }
+                </div>
     
-                <h6>Try It Out</h6>
+                <h6 class="my-3">Try It Out</h6>
 
                 <div class="card p-3 bg-dark text-light">
 
